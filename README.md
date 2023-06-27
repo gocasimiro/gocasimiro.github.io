@@ -1,3 +1,3 @@
 # who's gocas?
-### silence is golden
-
+### find out, reach out
+gocasimiro.com
