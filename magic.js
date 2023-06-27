@@ -30,7 +30,7 @@ const contactor = () => {
 	document.querySelector('h4').addEventListener('mouseenter', () => {
 		toggler()
 	})
-	document.querySelector('h4').addEventListener('click', (event) => {
+	document.querySelector('h4').addEventListener('touchstart', (event) => {
 		event.preventDefault()
 		toggler()
 	})
