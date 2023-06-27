@@ -25,8 +25,14 @@ const themeToggler = () => {
 }
 
 const contactor = () => {
+	const toggler = () =>
+		(document.querySelector('ul').style.display = 'inline-block')
 	document.querySelector('h4').addEventListener('mouseenter', () => {
-		document.querySelector('ul').style.display = 'inline-block'
+		toggler()
+	})
+	document.querySelector('h4').addEventListener('click', (event) => {
+		event.preventDefault()
+		toggler()
 	})
 }
 
