@@ -41,12 +41,14 @@ const titleChanger = () => {
 	setTimeout(() => (document.title = "who's gocas?"), 1850)
 }
 
-const sherlock = () => {
+function sherlock() {
 	window.dataLayer = window.dataLayer || [];
-	const gtag = () => dataLayer.push(arguments);
+	const gtag = (arguments) => dataLayer.push(arguments);
 
 	gtag('js', new Date());
 	gtag('config', 'G-BGD2SRPC8F');
+
+	console.info("I'm gently watching you. 👀")
 }
 
 sherlock()
