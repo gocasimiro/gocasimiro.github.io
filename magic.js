@@ -41,6 +41,15 @@ const titleChanger = () => {
 	setTimeout(() => (document.title = "who's gocas?"), 1850)
 }
 
+const sherlock = () => {
+	window.dataLayer = window.dataLayer || [];
+	const gtag = () => dataLayer.push(arguments);
+
+	gtag('js', new Date());
+	gtag('config', 'G-BGD2SRPC8F');
+}
+
+sherlock()
 titleChanger()
 contactor()
 themeToggler()
