@@ -29,25 +29,27 @@ const climinha = () => {
 }
 
 const legaliza = () => {
-	const puxaOPano = (elemento, modificante) =>
-		(document.querySelector(elemento).style.display = modificante)
+	const puxaOPano = (elemento, propriedade, valor) =>
+		(document.querySelector(elemento).style[propriedade] = valor)
 
 	document.querySelector('h4').addEventListener('mouseenter', () => {
-		puxaOPano('ul', 'inline-block')
+		puxaOPano('ul', 'display', 'inline-block')
 	})
 	document.querySelector('h4').addEventListener('touchstart', (event) => {
 		event.preventDefault()
-		puxaOPano('ul', 'inline-block')
+		puxaOPano('ul', 'display', 'inline-block')
 	})
 
 	document.getElementById('why_cta').addEventListener('click', () => {
-		puxaOPano('#why', 'block')
+		puxaOPano('#why', 'display', 'block')
+		puxaOPano('body', 'height', 'auto')
 	})
 	document
 		.getElementById('why_cta')
 		.addEventListener('touchstart', (event) => {
 			event.preventDefault()
-			puxaOPano('#why', 'block')
+			puxaOPano('#why', 'display', 'block')
+			puxaOPano('body', 'height', 'auto')
 		})
 }
 
@@ -104,6 +106,11 @@ const euVouFalarTuVaiDeTradutor = (idioma = 'br') => {
 	document.getElementById('developer').innerText = blah.developer
 	document.getElementById('designer').innerText = blah.designer
 	document.getElementById('maker').innerText = blah.maker
+
+	document.getElementById('developer').title = blah.developer_hover
+	document.getElementById('designer').title = blah.designer_hover
+	document.getElementById('maker').title = blah.maker_hover
+
 	document.getElementById('cta').innerText = blah.cta
 	document.getElementById('why_cta').innerText = blah.why_cta
 	document.getElementById('why').innerText = blah.why
@@ -111,11 +118,19 @@ const euVouFalarTuVaiDeTradutor = (idioma = 'br') => {
 	cagueta(blah.console_warn)
 }
 
+const avisoAosNavegantes = () => {
+	if (window.document.readyState) document.title = 'tem trapaça 👀'
+	setTimeout(() => (document.title = 'gocasimiro.com'), 1850)
+}
+
 const bataOPenalti = async () => {
 	climinha()
 	await vamoDarUmaChegadala()
 	euVouFalarTuVaiDeTradutor()
 	legaliza()
+	avisoAosNavegantes()
 }
 
-bataOPenalti() // 🚀
+bataOPenalti()
+
+// With love, Gui Casimiro. 🤍

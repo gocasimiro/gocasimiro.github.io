@@ -1,22 +1,26 @@
+html {
+	height: 100%;
+}
+
 body {
 	display: flex;
 	align-items: center;
 	flex-direction: row;
-	height: 100vh;
+	height: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 	position: relative;
-	box-sizing: border-box;
+	margin: 0;
 }
 
 main {
 	display: inline-block;
 	width: auto;
 	flex-wrap: wrap;
-	margin: 0 5vw;
+	margin: 0 7vw;
 }
 
 h1 {
-	margin: 0 0 2rem;
+	margin: 3rem 0 2rem;
 	font-size: 4rem;
 }
 h2 {
@@ -73,19 +77,20 @@ a:hover {
 a:hover span {
 	display: inline-block;
 }
+footer {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin: 3rem 0 2rem;
+}
 #why_cta {
-	position: absolute;
-	bottom: 3vh;
-	right: 3vh;
 	font-size: 0.75rem;
 	font-weight: 500;
 	opacity: 0.5;
 	cursor: pointer;
 }
 .languages {
-	position: absolute;
-	bottom: 3vh;
-	left: 3vh;
 	font-weight: 500;
 	opacity: 0.9;
 	& span {
@@ -98,12 +103,18 @@ a:hover span {
 #why {
 	max-width: 750px;
 	font-size: 0.875rem;
-	margin: 10vh 0 1rem;
+	margin: 3rem 0 1rem;
 	letter-spacing: 0.05rem;
-	opacity: 0.5;
+	opacity: 0.75;
+	line-height: 1.2rem;
 	display: none;
 }
 
+@media screen and (max-height: 640px) {
+	html {
+		height: auto;
+	}
+}
 @media screen and (max-width: 468px) {
 	html {
 		font-size: 13px;
