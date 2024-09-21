@@ -4,6 +4,8 @@ body {
 	flex-direction: row;
 	height: 100vh;
 	font-family: Arial, Helvetica, sans-serif;
+	position: relative;
+	box-sizing: border-box;
 }
 
 main {
@@ -20,6 +22,18 @@ h1 {
 h2 {
 	margin: 0 0 1.5rem;
 	font-size: 3rem;
+	& span {
+		&::after {
+			content: '/';
+			margin-left: 0.75rem;
+			display: inline-block;
+		}
+		&:last-child {
+			&::after {
+				display: none;
+			}
+		}
+	}
 }
 h4 {
 	display: flex;
@@ -58,6 +72,36 @@ a:hover {
 }
 a:hover span {
 	display: inline-block;
+}
+#why_cta {
+	position: absolute;
+	bottom: 3vh;
+	right: 3vh;
+	font-size: 0.75rem;
+	font-weight: 500;
+	opacity: 0.5;
+	cursor: pointer;
+}
+.languages {
+	position: absolute;
+	bottom: 3vh;
+	left: 3vh;
+	font-weight: 500;
+	opacity: 0.9;
+	& span {
+		cursor: pointer;
+		&:first-child {
+			margin-right: 0.5rem;
+		}
+	}
+}
+#why {
+	max-width: 750px;
+	font-size: 0.875rem;
+	margin: 10vh 0 1rem;
+	letter-spacing: 0.05rem;
+	opacity: 0.5;
+	display: none;
 }
 
 @media screen and (max-width: 468px) {
