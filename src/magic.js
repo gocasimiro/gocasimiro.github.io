@@ -1,6 +1,7 @@
 let papo = null
 let speech = null
 let bateuCracha = 0
+let fala = navigator.language.includes('en') ? 'en' : 'br'
 
 const climinha = () => {
 	const html = document.documentElement
@@ -73,7 +74,7 @@ const cagueta = (consciente) => {
 	bateuCracha++
 }
 
-const vamoDarUmaChegadala = async () => {
+const vamoDarUmaChegadaLa = async () => {
 	const pegaOPapo = async (path) => {
 		try {
 			const response = await fetch(path)
@@ -103,6 +104,8 @@ const vamoDarUmaChegadala = async () => {
 const euVouFalarTuVaiDeTradutor = (idioma = 'br') => {
 	const blah = idioma === 'br' ? papo : speech
 
+	document.documentElement.setAttribute('lang', idioma)
+
 	document.getElementById('title').innerText = blah.title
 	document.getElementById('developer').innerText = blah.developer
 	document.getElementById('designer').innerText = blah.designer
@@ -126,12 +129,12 @@ const avisoAosNavegantes = () => {
 
 const bataOPenalti = async () => {
 	climinha()
-	await vamoDarUmaChegadala()
-	euVouFalarTuVaiDeTradutor()
+	await vamoDarUmaChegadaLa()
+	euVouFalarTuVaiDeTradutor(fala)
 	legaliza()
 	avisoAosNavegantes()
 }
 
 bataOPenalti()
 
-// With love, Gui Casimiro. 🤍
+// Com amor, Gui Casimiro. 🤍
