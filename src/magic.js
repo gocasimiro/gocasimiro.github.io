@@ -3,13 +3,14 @@ let speech = null
 let bateuCracha = 0
 
 const climinha = () => {
+	const html = document.documentElement
 	const escuro = () => {
-		document.body.style.background = 'black'
-		document.body.style.color = 'white'
+		html.style.background = 'black'
+		html.style.color = 'white'
 	}
 	const claro = () => {
-		document.body.style.background = 'white'
-		document.body.style.color = 'black'
+		html.style.background = 'white'
+		html.style.color = 'black'
 	}
 
 	if (
@@ -24,7 +25,7 @@ const climinha = () => {
 	window
 		.matchMedia('(prefers-color-scheme: dark)')
 		.addEventListener('change', () => {
-			themeToggler()
+			climinha()
 		})
 }
 
