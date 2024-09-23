@@ -1,7 +1,7 @@
 let papo = null
 let speech = null
 let bateuCracha = 0
-let fala = navigator.language.includes('en') ? 'en' : 'br'
+let fala = navigator.language.includes('en') ? '🇺🇸' : '🇧🇷'
 
 const climinha = () => {
 	const html = document.documentElement
@@ -101,8 +101,8 @@ const vamoDarUmaChegadaLa = async () => {
 	}
 }
 
-const euVouFalarTuVaiDeTradutor = (idioma = 'br') => {
-	const blah = idioma === 'br' ? papo : speech
+const euVouFalarTuVaiDeTradutor = (idioma = '🇧🇷') => {
+	const blah = idioma === '🇧🇷' ? papo : speech
 
 	document.documentElement.setAttribute('lang', idioma)
 
@@ -128,10 +128,20 @@ const avisoAosNavegantes = () => {
 	if (window.document.readyState) document.title = 'tem trapaça 👀'
 	setTimeout(() => (document.title = 'gocasimiro.com'), 1850)
 }
+const aChinelaVaiCantar = () => {
+	const vamoLaGalera = (flag, f) => {
+		document.getElementById(flag).addEventListener('click', () => {
+			f(flag)
+		})
+	}
+	vamoLaGalera('🇺🇸', whatDidHeSaid) // Eles são grande
+	vamoLaGalera('🇧🇷', euVouFalarTuVaiDeTradutor) // Mas nóis é ruim
+}
 
 const bataOPenalti = async () => {
 	climinha()
 	await vamoDarUmaChegadaLa()
+	aChinelaVaiCantar()
 	euVouFalarTuVaiDeTradutor(fala)
 	legaliza()
 	avisoAosNavegantes()
