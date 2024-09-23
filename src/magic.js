@@ -1,7 +1,15 @@
+const faloComQuem = () => {
+	if (navigator.language.includes('pt')) return '🇧🇷'
+	if (navigator.language.includes('en')) return '🇺🇸'
+	if (navigator.language.includes('es')) return '🇪🇸'
+	return '🇧🇷'
+}
+
 let papo = null
 let speech = null
+let hablas = null
 let bateuCracha = 0
-let fala = navigator.language.includes('en') ? '🇺🇸' : '🇧🇷'
+let fala = faloComQuem()
 
 const climinha = () => {
 	const html = document.documentElement
@@ -90,19 +98,29 @@ const vamoDarUmaChegadaLa = async () => {
 	}
 
 	try {
-		const [br, en] = await Promise.all([
+		const [br, en, es] = await Promise.all([
 			pegaOPapo('./src/languages/br.json'),
 			pegaOPapo('./src/languages/en.json'),
+			pegaOPapo('./src/languages/es.json'),
 		])
 		papo = br
 		speech = en
+		hablas = es
 	} catch (error) {
 		console.error('Não teve conversa :/', error)
 	}
 }
 
+const avisoAosNavegantes = (papo) => {
+	if (window.document.readyState) document.title = papo
+	setTimeout(() => (document.title = 'gocasimiro.com'), 1850)
+}
+
 const euVouFalarTuVaiDeTradutor = (idioma = '🇧🇷') => {
-	const blah = idioma === '🇧🇷' ? papo : speech
+	let blah
+	if (idioma === '🇧🇷') blah = papo
+	if (idioma === '🇺🇸') blah = speech
+	if (idioma === '🇪🇸') blah = hablas
 
 	document.documentElement.setAttribute('lang', idioma)
 
@@ -119,15 +137,14 @@ const euVouFalarTuVaiDeTradutor = (idioma = '🇧🇷') => {
 	document.getElementById('why_cta').innerText = blah.why_cta
 	document.getElementById('why').innerText = blah.why
 
+	avisoAosNavegantes(blah.trick)
+
 	cagueta(blah.console_warn)
 }
 
 const whatDidHeSaid = euVouFalarTuVaiDeTradutor
+const laPergunta = euVouFalarTuVaiDeTradutor
 
-const avisoAosNavegantes = () => {
-	if (window.document.readyState) document.title = 'tem trapaça 👀'
-	setTimeout(() => (document.title = 'gocasimiro.com'), 1850)
-}
 const aChinelaVaiCantar = () => {
 	const vamoLaGalera = (flag, f) => {
 		document.getElementById(flag).addEventListener('click', () => {
@@ -136,6 +153,7 @@ const aChinelaVaiCantar = () => {
 	}
 	vamoLaGalera('🇺🇸', whatDidHeSaid) // Eles são grande
 	vamoLaGalera('🇧🇷', euVouFalarTuVaiDeTradutor) // Mas nóis é ruim
+	vamoLaGalera('🇪🇸', laPergunta) // Viva Latinoamerica
 }
 
 const bataOPenalti = async () => {
@@ -144,7 +162,6 @@ const bataOPenalti = async () => {
 	aChinelaVaiCantar()
 	euVouFalarTuVaiDeTradutor(fala)
 	legaliza()
-	avisoAosNavegantes()
 }
 
 bataOPenalti()
