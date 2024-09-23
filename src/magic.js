@@ -122,6 +122,8 @@ const euVouFalarTuVaiDeTradutor = (idioma = 'br') => {
 	cagueta(blah.console_warn)
 }
 
+const whatDidHeSaid = euVouFalarTuVaiDeTradutor
+
 const avisoAosNavegantes = () => {
 	if (window.document.readyState) document.title = 'tem trapaça 👀'
 	setTimeout(() => (document.title = 'gocasimiro.com'), 1850)
