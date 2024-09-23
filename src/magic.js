@@ -65,7 +65,7 @@ const legaliza = () => {
 	document.getElementById('why_cta').addEventListener('click', () => {
 		if (document.getElementById('why').style.display === 'block') {
 			botaOPano('#why', 'display', 'none')
-			botaOPano('body', 'height', '100vh')
+			botaOPano('body', 'height', '100%')
 			return
 		}
 		puxaOPano('#why', 'display', 'block')
@@ -77,7 +77,7 @@ const legaliza = () => {
 			event.preventDefault()
 			if (document.getElementById('why').style.display === 'block') {
 				botaOPano('#why', 'display', 'none')
-				botaOPano('body', 'height', '100vh')
+				botaOPano('body', 'height', '100%')
 				return
 			}
 			puxaOPano('#why', 'display', 'block')
