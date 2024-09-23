@@ -52,6 +52,8 @@ const legaliza = () => {
 	const puxaOPano = (elemento, propriedade, valor) =>
 		(document.querySelector(elemento).style[propriedade] = valor)
 
+	const botaOPano = puxaOPano
+
 	document.querySelector('h4').addEventListener('mouseenter', () => {
 		puxaOPano('ul', 'display', 'inline-block')
 	})
@@ -61,6 +63,11 @@ const legaliza = () => {
 	})
 
 	document.getElementById('why_cta').addEventListener('click', () => {
+		if (document.getElementById('why').style.display === 'block') {
+			botaOPano('#why', 'display', 'none')
+			botaOPano('body', 'height', '100vh')
+			return
+		}
 		puxaOPano('#why', 'display', 'block')
 		puxaOPano('body', 'height', 'auto')
 	})
@@ -68,6 +75,11 @@ const legaliza = () => {
 		.getElementById('why_cta')
 		.addEventListener('touchstart', (event) => {
 			event.preventDefault()
+			if (document.getElementById('why').style.display === 'block') {
+				botaOPano('#why', 'display', 'none')
+				botaOPano('body', 'height', '100vh')
+				return
+			}
 			puxaOPano('#why', 'display', 'block')
 			puxaOPano('body', 'height', 'auto')
 		})
