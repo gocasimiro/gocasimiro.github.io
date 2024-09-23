@@ -13,13 +13,23 @@ let fala = faloComQuem()
 
 const climinha = () => {
 	const html = document.documentElement
+	let tetinho = document.querySelector('meta[name="theme-color"]')
+
+	if (!tetinho) {
+		tetinho = document.createElement('meta')
+		tetinho.setAttribute('name', 'theme-color')
+		document.head.appendChild(tetinho)
+	}
+
 	const escuro = () => {
 		html.style.background = 'black'
 		html.style.color = 'white'
+		tetinho.setAttribute('content', 'black')
 	}
 	const claro = () => {
 		html.style.background = 'white'
 		html.style.color = 'black'
+		tetinho.setAttribute('content', 'white')
 	}
 
 	if (
