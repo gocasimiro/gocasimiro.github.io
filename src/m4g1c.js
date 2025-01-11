@@ -1,1 +1,134 @@
-let faloComQuem=()=>navigator.language.includes("pt")?"🇧🇷":navigator.language.includes("en")?"🇺🇸":navigator.language.includes("es")?"🇪🇸":"🇧🇷",papo=null,speech=null,hablas=null,bateuCracha=0,fala=faloComQuem(),climinha=()=>{let e=document.documentElement,t=document.querySelector('meta[name="theme-color"]');t||((t=document.createElement("meta")).setAttribute("name","theme-color"),document.head.appendChild(t));window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?(e.style.background="black",e.style.color="white",t.setAttribute("content","black")):(e.style.background="white",e.style.color="black",t.setAttribute("content","white")),window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{climinha()})},legaliza=()=>{let t=(e,t,a)=>document.querySelector(e).style[t]=a,a=t;document.querySelector("h4").addEventListener("mouseenter",()=>{t("ul","display","inline-block")}),document.querySelector("h4").addEventListener("touchstart",e=>{e.preventDefault(),t("ul","display","inline-block")}),document.getElementById("why_cta").addEventListener("click",()=>{"block"===document.getElementById("why").style.display?(a("#why","display","none"),a("body","height","100%")):(t("#why","display","block"),t("body","height","auto"))}),document.getElementById("why_cta").addEventListener("touchstart",e=>{e.preventDefault(),"block"===document.getElementById("why").style.display?(a("#why","display","none"),a("body","height","100%")):(t("#why","display","block"),t("body","height","auto"))})},cagueta=e=>{function t(){dataLayer.push(arguments)}0<bateuCracha?(console.clear(),console.info(e)):(window.dataLayer=window.dataLayer||[],t("js",new Date),t("config","G-BGD2SRPC8F"),console.info(e),bateuCracha++)},vamoDarUmaChegadaLa=async()=>{var e=async e=>{try{var t=await fetch(e);if(t.ok)return t.json();throw new Error("Qual é, João?! Tu fala inglês porra nenhuma!: "+t.status)}catch(e){console.error("Esse cara mandou eu me fuder, véio!",e)}};try{var[t,a,n]=await Promise.all([e("./src/languages/br.json"),e("./src/languages/en.json"),e("./src/languages/es.json")]);papo=t,speech=a,hablas=n}catch(e){console.error("Não teve conversa :/",e)}},avisoAosNavegantes=e=>{window.document.readyState&&(document.title=e),setTimeout(()=>document.title="gocasimiro.com",1850)},euVouFalarTuVaiDeTradutor=(e="🇧🇷")=>{let t;"🇧🇷"===e&&(t=papo),"🇺🇸"===e&&(t=speech),"🇪🇸"===e&&(t=hablas),document.documentElement.setAttribute("lang",e),document.getElementById("title").innerText=t.title,document.getElementById("developer").innerText=t.developer,document.getElementById("designer").innerText=t.designer,document.getElementById("maker").innerText=t.maker,document.getElementById("developer").title=t.developer_hover,document.getElementById("designer").title=t.designer_hover,document.getElementById("maker").title=t.maker_hover,document.getElementById("cta").innerText=t.cta,document.getElementById("why_cta").innerText=t.why_cta,document.getElementById("why").innerText=t.why,avisoAosNavegantes(t.trick),cagueta(t.console_warn)},whatDidHeSaid=euVouFalarTuVaiDeTradutor,laPergunta=euVouFalarTuVaiDeTradutor,aChinelaVaiCantar=()=>{var e=(e,t)=>{document.getElementById(e).addEventListener("click",()=>{t(e)})};e("🇺🇸",whatDidHeSaid),e("🇧🇷",euVouFalarTuVaiDeTradutor),e("🇪🇸",laPergunta)},bataOPenalti=async()=>{climinha(),await vamoDarUmaChegadaLa(),aChinelaVaiCantar(),euVouFalarTuVaiDeTradutor(fala),legaliza()};bataOPenalti();
+const faloComQuem = () =>
+	navigator.language.includes('pt')
+		? '🇧🇷'
+		: navigator.language.includes('en')
+		? '🇺🇸'
+		: navigator.language.includes('es')
+		? '🇪🇸'
+		: '🇧🇷'
+let papo = null,
+	speech = null,
+	hablas = null,
+	bateuCracha = 0,
+	fala = faloComQuem()
+const climinha = () => {
+	const e = document.documentElement,
+		t =
+			document.querySelector('meta[name="theme-color"]') ||
+			(() => {
+				const e = document.createElement('meta')
+				return (
+					e.setAttribute('name', 'theme-color'),
+					document.head.appendChild(e),
+					e
+				)
+			})()
+	const n = () => {
+			;(e.style.background = 'black'),
+				(e.style.color = 'white'),
+				t.setAttribute('content', 'black')
+		},
+		o = () => {
+			;(e.style.background = 'white'),
+				(e.style.color = 'black'),
+				t.setAttribute('content', 'white')
+		}
+	window.matchMedia &&
+	window.matchMedia('(prefers-color-scheme: dark)').matches
+		? n()
+		: o(),
+		window
+			.matchMedia('(prefers-color-scheme: dark)')
+			.addEventListener('change', climinha)
+}
+const legaliza = () => {
+	const e = (e, t, n) => (document.querySelector(e).style[t] = n)
+	document.querySelector('h4').addEventListener('mouseenter', () => {
+		e('ul', 'display', 'inline-block')
+	}),
+		document.querySelector('h4').addEventListener('touchstart', (t) => {
+			t.preventDefault(), e('ul', 'display', 'inline-block')
+		}),
+		document.getElementById('why_cta').addEventListener('click', () => {
+			const t = document.getElementById('why').style.display === 'block'
+			e('#why', 'display', t ? 'none' : 'block'),
+				e('body', 'height', t ? '100%' : 'auto')
+		}),
+		document.getElementById('why_cta').addEventListener('touchstart', (t) => {
+			t.preventDefault()
+			const n = document.getElementById('why').style.display === 'block'
+			e('#why', 'display', n ? 'none' : 'block'),
+				e('body', 'height', n ? '100%' : 'auto')
+		})
+}
+const cagueta = (e) => {
+	if (bateuCracha > 0) return console.clear(), void console.info(e)
+	;(window.dataLayer = window.dataLayer || []),
+		window.dataLayer.push(['js', new Date()]),
+		window.dataLayer.push(['config', 'G-BGD2SRPC8F']),
+		console.info(e),
+		bateuCracha++
+}
+const vamoDarUmaChegadaLa = async () => {
+	const e = async (e) => {
+		try {
+			const t = await fetch(e)
+			if (!t.ok)
+				throw new Error(
+					`Qual é, João?! Tu fala inglês porra nenhuma!: ${t.status}`
+				)
+			return t.json()
+		} catch (t) {
+			console.error('Esse cara mandou eu me fuder, véio!', t)
+		}
+	}
+	try {
+		const [t, n, o] = await Promise.all([
+			e('./src/languages/br.json'),
+			e('./src/languages/en.json'),
+			e('./src/languages/es.json'),
+		])
+		;(papo = t), (speech = n), (hablas = o)
+	} catch (e) {
+		console.error('Não teve conversa :/', e)
+	}
+}
+const avisoAosNavegantes = (e) => {
+	window.document.readyState && (document.title = e),
+		setTimeout(() => (document.title = 'gocasimiro.com'), 1850)
+}
+const euVouFalarTuVaiDeTradutor = (e = '🇧🇷') => {
+	let t = e === '🇧🇷' ? papo : e === '🇺🇸' ? speech : e === '🇪🇸' ? hablas : null
+	document.documentElement.setAttribute('lang', e),
+		(document.getElementById('title').innerText = t.title),
+		(document.getElementById('developer').innerText = t.developer),
+		(document.getElementById('designer').innerText = t.designer),
+		(document.getElementById('maker').innerText = t.maker),
+		(document.getElementById('developer').title = t.developer_hover),
+		(document.getElementById('designer').title = t.designer_hover),
+		(document.getElementById('maker').title = t.maker_hover),
+		(document.getElementById('cta').innerText = t.cta),
+		(document.getElementById('why_cta').innerText = t.why_cta),
+		(document.getElementById('why').innerText = t.why),
+		(document.getElementById(
+			'mail'
+		).href = `mailto:gocasimiro@gmail.com?subject=${t.mail}`),
+		avisoAosNavegantes(t.trick),
+		cagueta(t.console_warn)
+}
+const aChinelaVaiCantar = () => {
+	const e = (e, t) => {
+		document.getElementById(e).addEventListener('click', () => t(e))
+	}
+	e('🇺🇸', euVouFalarTuVaiDeTradutor),
+		e('🇧🇷', euVouFalarTuVaiDeTradutor),
+		e('🇪🇸', euVouFalarTuVaiDeTradutor)
+}
+const bataOPenalti = async () => {
+	climinha(),
+		await vamoDarUmaChegadaLa(),
+		aChinelaVaiCantar(),
+		euVouFalarTuVaiDeTradutor(fala),
+		legaliza()
+}
+bataOPenalti()

@@ -158,6 +158,12 @@ const euVouFalarTuVaiDeTradutor = (idioma = '🇧🇷') => {
 	document.getElementById('cta').innerText = blah.cta
 	document.getElementById('why_cta').innerText = blah.why_cta
 	document.getElementById('why').innerText = blah.why
+	document.getElementById(
+		'mail'
+	).href = `mailto:gocasimiro@gmail.com?subject=${blah.mail_subject}`
+	document.getElementById(
+		'whatsapp'
+	).href = `https://wa.me/5511997787623?text=${blah.whats_subject}`
 
 	avisoAosNavegantes(blah.trick)
 
