@@ -110,6 +110,96 @@ footer {
 	line-height: 1.2rem;
 	display: none;
 }
+.glitch {
+	background: black; /* Adjust color based on client's theme */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	overflow: hidden;
+}
+
+.glitch h1 {
+	position: relative;
+	color: white; /* Adjust color as needed */
+	font-size: 4rem; /* Adjust size as needed */
+	margin: 0;
+	/* Removed base wobble animation */
+}
+
+.glitch h1::before,
+.glitch h1::after {
+	content: attr(data-text); /* Use data attribute for text content */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.glitch h1::before {
+	left: 1px; /* Reduced offset */
+	text-shadow: -1px 0 red; /* Reduced offset */
+	animation: glitch-anim-1 0.8s infinite linear alternate-reverse; /* Adjusted timing, removed skew */
+}
+
+.glitch h1::after {
+	left: -1px; /* Reduced offset */
+	text-shadow: 1px 0 blue; /* Reduced offset, opposite direction */
+	animation: glitch-anim-2 0.9s infinite linear alternate-reverse; /* Adjusted timing, removed skew */
+}
+
+/* Removed @keyframes glitch-base */
+
+/* Simplified glitch-anim-1, removed skew */
+@keyframes glitch-anim-1 {
+	0% {
+		clip: rect(42px, 9999px, 44px, 0);
+	}
+	20% {
+		clip: rect(15px, 9999px, 75px, 0);
+	}
+	40% {
+		clip: rect(50px, 9999px, 100px, 0);
+	}
+	60% {
+		clip: rect(30px, 9999px, 60px, 0);
+	}
+	80% {
+		clip: rect(90px, 9999px, 120px, 0);
+	}
+	100% {
+		clip: rect(10px, 9999px, 40px, 0);
+	}
+}
+
+/* Simplified glitch-anim-2, removed skew */
+@keyframes glitch-anim-2 {
+	0% {
+		clip: rect(88px, 9999px, 130px, 0);
+	}
+	20% {
+		clip: rect(25px, 9999px, 55px, 0);
+	}
+	40% {
+		clip: rect(100px, 9999px, 140px, 0);
+	}
+	60% {
+		clip: rect(60px, 9999px, 90px, 0);
+	}
+	80% {
+		clip: rect(10px, 9999px, 35px, 0);
+	}
+	100% {
+		clip: rect(110px, 9999px, 150px, 0);
+	}
+}
 
 @media screen and (max-height: 640px) {
 	html {
