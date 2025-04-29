@@ -13,6 +13,7 @@ let fala = faloComQuem()
 
 const climinha = () => {
 	const html = document.documentElement
+	const glitch = document.querySelectorAll('.glitch')
 	let tetinho = document.querySelector('meta[name="theme-color"]')
 
 	if (!tetinho) {
@@ -23,11 +24,17 @@ const climinha = () => {
 
 	const escuro = () => {
 		html.style.background = 'black'
+		Array.prototype.slice
+			.call(glitch)
+			.map((cada) => (cada.style.background = 'black'))
 		html.style.color = 'white'
 		tetinho.setAttribute('content', 'black')
 	}
 	const claro = () => {
 		html.style.background = 'white'
+		Array.prototype.slice
+			.call(glitch)
+			.map((cada) => (cada.style.background = 'white'))
 		html.style.color = 'black'
 		tetinho.setAttribute('content', 'white')
 	}
@@ -165,6 +172,24 @@ const euVouFalarTuVaiDeTradutor = (idioma = '🇧🇷') => {
 		'whatsapp'
 	).href = `https://wa.me/5511997787623?text=${blah.whats_subject}`
 
+	document.getElementById('progress').children[0].innerText = blah.progress
+	document.getElementById('courage').children[0].innerText = blah.courage
+	document.getElementById('future').children[0].innerText = blah.future
+	document.getElementById('create').children[0].innerText = blah.create
+
+	document
+		.getElementById('progress')
+		.children[0].setAttribute('data-text', blah.progress)
+	document
+		.getElementById('courage')
+		.children[0].setAttribute('data-text', blah.courage)
+	document
+		.getElementById('future')
+		.children[0].setAttribute('data-text', blah.future)
+	document
+		.getElementById('create')
+		.children[0].setAttribute('data-text', blah.create)
+
 	avisoAosNavegantes(blah.trick)
 
 	cagueta(blah.console_warn)
@@ -184,12 +209,30 @@ const aChinelaVaiCantar = () => {
 	vamoLaGalera('🇪🇸', laPergunta) // Viva Latinoamerica
 }
 
+const sustinho = async () => {
+	const sustos = document.querySelectorAll('.glitch')
+	const comeco = 4500
+	const cada = 9000
+	const boo = 777
+	for (let i = 0; i < sustos.length; i++) {
+		const susto = sustos[Math.floor(Math.random() * sustos.length)]
+		const quando = comeco + i * cada + Math.random() * 5000
+		setTimeout(() => {
+			susto.style.display = 'flex'
+			setTimeout(() => {
+				susto.style.display = 'none'
+			}, boo)
+		}, quando)
+	}
+}
+
 const bataOPenalti = async () => {
 	climinha()
 	await vamoDarUmaChegadaLa()
 	aChinelaVaiCantar()
 	euVouFalarTuVaiDeTradutor(fala)
 	legaliza()
+	await sustinho() // Boo!
 }
 
 bataOPenalti()

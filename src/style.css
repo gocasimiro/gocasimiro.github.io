@@ -111,8 +111,7 @@ footer {
 	display: none;
 }
 .glitch {
-	background: black; /* Adjust color based on client's theme */
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
@@ -126,15 +125,13 @@ footer {
 
 .glitch h1 {
 	position: relative;
-	color: white; /* Adjust color as needed */
-	font-size: 4rem; /* Adjust size as needed */
+	font-size: 4rem;
 	margin: 0;
-	/* Removed base wobble animation */
 }
 
 .glitch h1::before,
 .glitch h1::after {
-	content: attr(data-text); /* Use data attribute for text content */
+	content: attr(data-text);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -144,20 +141,17 @@ footer {
 }
 
 .glitch h1::before {
-	left: 1px; /* Reduced offset */
-	text-shadow: -1px 0 red; /* Reduced offset */
-	animation: glitch-anim-1 0.8s infinite linear alternate-reverse; /* Adjusted timing, removed skew */
+	left: 1px;
+	text-shadow: -1px 0 red;
+	animation: glitch-anim-1 0.8s infinite linear alternate-reverse;
 }
 
 .glitch h1::after {
-	left: -1px; /* Reduced offset */
-	text-shadow: 1px 0 blue; /* Reduced offset, opposite direction */
-	animation: glitch-anim-2 0.9s infinite linear alternate-reverse; /* Adjusted timing, removed skew */
+	left: -1px;
+	text-shadow: 1px 0 blue;
+	animation: glitch-anim-2 0.9s infinite linear alternate-reverse;
 }
 
-/* Removed @keyframes glitch-base */
-
-/* Simplified glitch-anim-1, removed skew */
 @keyframes glitch-anim-1 {
 	0% {
 		clip: rect(42px, 9999px, 44px, 0);
@@ -179,7 +173,6 @@ footer {
 	}
 }
 
-/* Simplified glitch-anim-2, removed skew */
 @keyframes glitch-anim-2 {
 	0% {
 		clip: rect(88px, 9999px, 130px, 0);
