@@ -10,6 +10,9 @@ let speech = null
 let hablas = null
 let bateuCracha = 0
 let fala = faloComQuem()
+window.globalState = {
+	foco: false,
+}
 
 const climinha = () => {
 	const html = document.documentElement
@@ -73,10 +76,12 @@ const legaliza = () => {
 		if (document.getElementById('why').style.display === 'block') {
 			botaOPano('#why', 'display', 'none')
 			botaOPano('body', 'height', '100%')
+			window.globalState.foco = false
 			return
 		}
 		puxaOPano('#why', 'display', 'block')
 		puxaOPano('body', 'height', 'auto')
+		window.globalState.foco = true
 	})
 	document
 		.getElementById('why_cta')
@@ -215,6 +220,8 @@ const sustinho = async () => {
 	const cada = 9000
 	const boo = 777
 	for (let i = 0; i < sustos.length; i++) {
+		if (window.globalState.foco === true) return
+
 		const susto = sustos[Math.floor(Math.random() * sustos.length)]
 		const quando = comeco + i * cada + Math.random() * 5000
 		setTimeout(() => {
