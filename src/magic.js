@@ -2,12 +2,14 @@ const faloComQuem = () => {
 	if (navigator.language.includes('pt')) return '🇧🇷'
 	if (navigator.language.includes('en')) return '🇺🇸'
 	if (navigator.language.includes('es')) return '🇪🇸'
+	if (navigator.language.includes('zh')) return '🇨🇳'
 	return '🇧🇷'
 }
 
 let papo = null
 let speech = null
 let hablas = null
+let mandarim = null
 let bateuCracha = 0
 let fala = faloComQuem()
 window.cabeca = {
@@ -132,14 +134,16 @@ const vamoDarUmaChegadaLa = async () => {
 	}
 
 	try {
-		const [br, en, es] = await Promise.all([
+		const [br, en, es, zh] = await Promise.all([
 			pegaOPapo('./src/languages/br.json'),
 			pegaOPapo('./src/languages/en.json'),
 			pegaOPapo('./src/languages/es.json'),
+			pegaOPapo('./src/languages/zh.json'),
 		])
 		papo = br
 		speech = en
 		hablas = es
+		mandarim = zh
 	} catch (error) {
 		console.error('Não teve conversa :/', error)
 	}
@@ -155,6 +159,7 @@ const euVouFalarTuVaiDeTradutor = (idioma = '🇧🇷') => {
 	if (idioma === '🇧🇷') blah = papo
 	if (idioma === '🇺🇸') blah = speech
 	if (idioma === '🇪🇸') blah = hablas
+	if (idioma === '🇨🇳') blah = mandarim
 
 	document.documentElement.setAttribute('lang', idioma)
 
@@ -212,6 +217,7 @@ const aChinelaVaiCantar = () => {
 	vamoLaGalera('🇺🇸', whatDidHeSaid) // Eles são grande
 	vamoLaGalera('🇧🇷', euVouFalarTuVaiDeTradutor) // Mas nóis é ruim
 	vamoLaGalera('🇪🇸', laPergunta) // Viva Latinoamerica
+	vamoLaGalera('🇨🇳', euVouFalarTuVaiDeTradutor) // Tem que falar com todo mundo
 }
 
 const sustinho = async () => {

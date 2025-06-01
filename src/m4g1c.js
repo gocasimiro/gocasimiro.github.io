@@ -5,10 +5,13 @@ const faloComQuem = () =>
 		? '🇺🇸'
 		: navigator.language.includes('es')
 		? '🇪🇸'
+		: navigator.language.includes('zh')
+		? '🇨🇳'
 		: '🇧🇷'
 let papo = null,
 	speech = null,
 	hablas = null,
+	mandarim = null,
 	bateuCracha = 0,
 	fala = faloComQuem()
 const climinha = () => {
@@ -83,12 +86,13 @@ const vamoDarUmaChegadaLa = async () => {
 		}
 	}
 	try {
-		const [t, n, o] = await Promise.all([
+		const [t, n, o, zh] = await Promise.all([
 			e('./src/languages/br.json'),
 			e('./src/languages/en.json'),
 			e('./src/languages/es.json'),
+			e('./src/languages/zh.json'),
 		])
-		;(papo = t), (speech = n), (hablas = o)
+		;(papo = t), (speech = n), (hablas = o), (mandarim = zh)
 	} catch (e) {
 		console.error('Não teve conversa :/', e)
 	}
@@ -98,7 +102,16 @@ const avisoAosNavegantes = (e) => {
 		setTimeout(() => (document.title = 'gocasimiro.com'), 1850)
 }
 const euVouFalarTuVaiDeTradutor = (e = '🇧🇷') => {
-	let t = e === '🇧🇷' ? papo : e === '🇺🇸' ? speech : e === '🇪🇸' ? hablas : null
+	let t =
+		e === '🇧🇷'
+			? papo
+			: e === '🇺🇸'
+			? speech
+			: e === '🇪🇸'
+			? hablas
+			: e === '🇨🇳'
+			? mandarim
+			: null
 	document.documentElement.setAttribute('lang', e),
 		(document.getElementById('title').innerText = t.title),
 		(document.getElementById('developer').innerText = t.developer),
@@ -123,6 +136,7 @@ const aChinelaVaiCantar = () => {
 	e('🇺🇸', euVouFalarTuVaiDeTradutor),
 		e('🇧🇷', euVouFalarTuVaiDeTradutor),
 		e('🇪🇸', euVouFalarTuVaiDeTradutor)
+	e('🇨🇳', euVouFalarTuVaiDeTradutor)
 }
 const bataOPenalti = async () => {
 	climinha(),
