@@ -85,9 +85,9 @@ footer {
 	margin: 3rem 0 2rem;
 }
 #why_cta {
-	font-size: 0.75rem;
+	font-size: 0.875rem;
 	font-weight: 500;
-	opacity: 0.5;
+	opacity: 0.85;
 	cursor: pointer;
 }
 .languages {
@@ -104,7 +104,7 @@ footer {
 }
 #why {
 	max-width: 750px;
-	font-size: 0.875rem;
+	font-size: 1rem;
 	margin: 3rem 0 0;
 	opacity: 0.75;
 	line-height: 1.2rem;
@@ -125,7 +125,7 @@ footer {
 
 .glitch h1 {
 	position: relative;
-	font-size: 4rem;
+	font-size: 2.875rem;
 	margin: 0;
 }
 
