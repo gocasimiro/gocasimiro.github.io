@@ -44,7 +44,13 @@ const climinha = () => {
 		tetinho.setAttribute('content', 'white')
 	}
 
-	if (
+  escuro()
+
+  return
+
+  // Tema claro desativado para melhor exibição da ascii art, talvez faça outra positiva
+  
+	/* if (
 		window.matchMedia &&
 		window.matchMedia('(prefers-color-scheme: dark)').matches
 	) {
@@ -58,6 +64,7 @@ const climinha = () => {
 		.addEventListener('change', () => {
 			climinha()
 		})
+  */
 }
 
 const legaliza = () => {
