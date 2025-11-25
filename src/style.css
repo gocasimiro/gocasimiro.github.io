@@ -13,14 +13,14 @@ body {
   &::before {
     display: none;
     content: '';
-    background-size: cover;
+    background-size: auto 101%;
     background-repeat: no-repeat;
     background-image: url(./habitat.gif);
     background-position: center;
     opacity: 0.25;
     display: inline-flex;
     width: 100%;
-    height: inherit;
+    height: 100%;
     z-index: -1;
     position: absolute;
     align-self: center;
