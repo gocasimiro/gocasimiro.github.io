@@ -10,6 +10,22 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	position: relative;
 	margin: 0;
+  &::before {
+    display: none;
+    content: '';
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(./habitat.gif);
+    background-position: center;
+    opacity: 0.25;
+    display: inline-flex;
+    width: 100%;
+    height: inherit;
+    z-index: -1;
+    position: absolute;
+    align-self: center;
+    justify-self: anchor-center;
+  }
 }
 
 main {
