@@ -44,12 +44,12 @@ const climinha = () => {
 		tetinho.setAttribute('content', 'white')
 	}
 
-  escuro()
+	escuro()
 
-  return
+	return
 
-  // Tema claro desativado para melhor exibição da ascii art, talvez faça outra positiva
-  
+	// Tema claro desativado para melhor exibição da ascii art, talvez faça outra positiva
+
 	/* if (
 		window.matchMedia &&
 		window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -89,7 +89,7 @@ const legaliza = () => {
 			return
 		}
 		puxaOPano('#why', 'display', 'block')
-		puxaOPano('body', 'height', 'auto')
+		puxaOPano('body', 'height', '100%')
 		window.cabeca.foco = true
 	})
 	document
