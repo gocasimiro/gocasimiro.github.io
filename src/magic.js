@@ -187,6 +187,17 @@ const euVouFalarTuVaiDeTradutor = (idioma = '🇧🇷') => {
 	document.getElementById('cta').innerText = blah.cta
 	document.getElementById('why_cta').innerText = blah.why_cta
 	document.getElementById('why').innerText = blah.why
+
+	const cvElement = document.getElementById('cv')
+	cvElement.innerText = blah.cv
+	const cvSpan = document.createElement('span')
+	cvSpan.innerText = '📄'
+	cvElement.appendChild(cvSpan)
+	cvElement.href =
+		idioma === '🇧🇷'
+			? './src/assets/Guilherme Casimiro - CV - BR.pdf'
+			: './src/assets/Guilherme Casimiro - CV - EN.pdf'
+
 	document.getElementById(
 		'mail'
 	).href = `mailto:gocasimiro@gmail.com?subject=${blah.mail_subject}`
